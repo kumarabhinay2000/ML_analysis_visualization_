@@ -1,0 +1,8 @@
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}

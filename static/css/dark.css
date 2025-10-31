@@ -1,0 +1,24 @@
+body {
+    background-color: #e50808;
+    color: #faf4f4;
+}
+
+.navbar {
+    background-color: #eb0b0b !important;
+}
+
+.form-control {
+    background-color: #b53f3f;
+    color: #fff;
+    border-color: #555;
+}
+
+button {
+    background-color: #f0e811;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+button:hover {
+    background-color: #48f708;
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center mb-4">Upload Your Dataset</h1>
+<form method="POST" enctype="multipart/form-data" class="shadow p-4 bg-white rounded">
+    {{ form.hidden_tag() }}
+    <div class="form-group mb-3">
+        {{ form.dataset.label(class="form-label") }}
+        {{ form.dataset(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endblock %}

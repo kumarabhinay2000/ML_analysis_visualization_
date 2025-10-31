@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center mb-4">Visualization Dashboard</h1>
+
+<form id="filter-form" class="shadow p-4 bg-white rounded mb-4">
+    <div class="row">
+        <div class="col">
+            <label>X Column</label>
+            <select name="x_col" class="form-control">
+                {% for col in columns %}
+                    <option value="{{ col }}">{{ col }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col">
+            <label>Y Column</label>
+            <select name="y_col" class="form-control">
+                {% for col in columns %}
+                    <option value="{{ col }}">{{ col }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col">
+            <label>Chart Type</label>
+            <select name="chart_type" class="form-control">
+                <option value="scatter">Scatter</option>
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
+            </select>
+        </div>
+        <div class="col d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">Generate Chart</button>
+        </div>
+    </div>
+</form>
+
+<div id="chart-container" class="text-center my-4">
+    <img id="chart-image" src="{{ url_for('static', filename='images/placeholder.png') }}" class="img-fluid shadow rounded" alt="Chart will appear here"/>
+</div>
+
+<button id="download-chart" class="btn btn-success">Download Chart as Image</button>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<div class="analysis-buttons text-center my-4">
+    <a href="{{ url_for('correlation') }}" class="btn btn-info m-2">View Correlation Heatmap</a>
+
+    <form method="POST" action="{{ url_for('regression') }}" class="d-inline">
+        <input type="hidden" name="x_col" value="PassengerId">
+        <input type="hidden" name="y_col" value="Age">
+        <button type="submit" class="btn btn-warning m-2">Perform Regression Analysis</button>
+    </form>
+
+    <a href="{{ url_for('trend') }}?time_col=Date&value_col=Age" class="btn btn-success m-2">View Trend Analysis</a>
+    
+    <a href="{{ url_for('outliers') }}?col=Age" class="btn btn-danger m-2">Detect Outliers</a>
+    
+    <a href="{{ url_for('clustering') }}" class="btn btn-primary m-2">View Clustering + PCA</a>
+</div>
+
+{% endblock %}

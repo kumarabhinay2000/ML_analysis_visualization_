@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-4">Generated Chart & Data Summary</h1>
+
+<div class="text-center mb-4">
+    <img src="{{ chart_url }}" class="img-fluid shadow rounded" alt="Generated Chart"/>
+</div>
+
+<div class="bg-white shadow p-4 rounded">
+    <h3>Data Summary</h3>
+    <pre>{{ data_summary }}</pre>
+</div>
+
+<a href="/" class="btn btn-secondary mt-3">Go Back</a>
+{% endblock %}

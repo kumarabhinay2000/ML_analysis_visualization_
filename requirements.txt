@@ -1,0 +1,7 @@
+Flask
+Flask-WTF
+pandas
+matplotlib
+seaborn
+plotly
+openpyxl
